@@ -13,7 +13,7 @@ const celestiaDNA = {
 };
 
 // Replace with your real API key and endpoint
-const API_KEY = "YOUR_API_KEY";
+const API_KEY = "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";
 const openSourceAPI = `https://api.example.com/v1/chat?key=${API_KEY}`; // Placeholder
 
 // State
