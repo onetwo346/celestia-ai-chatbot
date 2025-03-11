@@ -8,7 +8,7 @@ const celestiaDNA = {
 };
 
 // API Key Integration (Replace with your real key)
-const API_KEY = "YOUR_API_KEY";
+const API_KEY = "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";
 const openSourceAPI = `https://api.example.com/v1/chat?key=${API_KEY}`; // Placeholder
 
 // Page Navigation
