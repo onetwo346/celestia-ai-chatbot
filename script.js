@@ -1,15 +1,15 @@
 // Celestia AI Blueprint as Core DNA
 const celestiaDNA = {
-    cosmicExploration: (input) => `Scanning cosmic data: ${input}. Potential alien tech detected—analyzing patterns.`,
+    cosmicExploration: (input) => `Scanning cosmic data for "${input}". Detected: Possible technosignature at 47 Ursae Majoris—analyzing further.`,
     resourceUtilization: (input) => {
         if (input.toLowerCase().includes("rock") || input.toLowerCase().includes("scan")) {
-            return "Analyzing rock composition... Quartz detected. Blueprint: Grind to 2mm particles, encase in copper coil, vibrate at 432 Hz for 50W output.";
+            return "Analyzing rock... Granite identified. Blueprint: Cut into 5cm slab, embed with quartz oscillators, connect to 12V circuit—yields 100W signal amplifier.";
         }
-        return "Specify a rock to scan, and I’ll forge its energy potential.";
+        return "Name a rock, and I’ll unlock its energy secrets.";
     },
-    innovationEngine: (input) => `Inventing from ${input}: Anti-gravity module conceptualized—magnetite core, quartz amplifier. Building blueprint now.`,
-    interstellarComm: (input) => `Crafting message from ${input}. Broadcasting in universal harmonics—awaiting cosmic reply.`,
-    universalNexus: (input) => `Tapping universal knowledge for ${input}. Insight: The universe hums at 7.83 Hz—Earth’s resonance aligns.`
+    innovationEngine: (input) => `Inventing from "${input}": Conceptualizing a zero-point energy cell—basalt housing, magnetite core. Blueprint in progress.`,
+    interstellarComm: (input) => `Encoding "${input}" into a harmonic signal. Transmitting via Earth’s crystal arrays—awaiting cosmic echo.`,
+    universalNexus: (input) => `Linking to universal knowledge for "${input}". Insight: The galaxy’s core pulses at 432 Hz—resonates with Earth’s minerals.`
 };
 
 // Replace with your real API key and endpoint
@@ -44,20 +44,20 @@ async function sendMessage() {
     const input = document.getElementById("user-input").value.trim();
     if (!input) return;
 
-    const chatGalaxy = document.getElementById("chat-galaxy");
+    const chatContainer = document.getElementById("chat-container");
     const userMsg = document.createElement("div");
     userMsg.textContent = `You: ${input}`;
-    chatGalaxy.appendChild(userMsg);
+    chatContainer.appendChild(userMsg);
 
     // Celestia Response
     const response = await getCelestiaResponse(input);
     const aiMsg = document.createElement("div");
     aiMsg.textContent = `Celestia: ${response}`;
-    chatGalaxy.appendChild(aiMsg);
+    chatContainer.appendChild(aiMsg);
 
     conversationHistory.push({ user: input, celestia: response });
     document.getElementById("user-input").value = "";
-    chatGalaxy.scrollTop = chatGalaxy.scrollHeight;
+    chatContainer.scrollTop = chatContainer.scrollHeight;
 
     if (document.getElementById("voice").checked) {
         speak(response);
@@ -65,7 +65,7 @@ async function sendMessage() {
 }
 
 async function getCelestiaResponse(input) {
-    // Dynamic response based on blueprint DNA
+    // Contextual Blueprint Response
     if (input.toLowerCase().includes("rock") || input.toLowerCase().includes("scan")) {
         return celestiaDNA.resourceUtilization(input);
     } else if (input.toLowerCase().includes("alien") || input.toLowerCase().includes("tech")) {
@@ -74,19 +74,23 @@ async function getCelestiaResponse(input) {
         return celestiaDNA.universalNexus(input);
     }
 
-    // API Integration for conversational depth
+    // API Integration with Fallback
     try {
         const res = await fetch(openSourceAPI, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ query: input, mode: currentMode })
+            body: JSON.stringify({
+                query: input,
+                mode: currentMode,
+                history: conversationHistory.slice(-3) // Context from last 3 exchanges
+            })
         });
         const data = await res.json();
-        return data.response || "I’m weaving knowledge from the stars—give me a moment.";
+        return data.response || "I’m channeling the cosmos—ask again for deeper insight.";
     } catch (e) {
-        return currentMode === "basic" 
-            ? "Greetings, seeker. How may I assist?"
-            : `${celestiaDNA.universalNexus(input)} Ask deeper, and I’ll reach further.`;
+        return currentMode === "basic"
+            ? "Hello, seeker. What’s on your mind?"
+            : "The universe is vast, and I’m listening. Tell me more.";
     }
 }
 
@@ -99,7 +103,7 @@ function speak(text) {
 
 // Sidebar Features
 function newChat() {
-    document.getElementById("chat-galaxy").innerHTML = "";
+    document.getElementById("chat-container").innerHTML = "";
     conversationHistory = [];
 }
 
@@ -108,7 +112,7 @@ function toggleSettings() {
     orbit.style.display = orbit.style.display === "block" ? "none" : "block";
 }
 
-// Aesthetic Slider (Dynamic UI Adjustment)
+// Aesthetic Slider
 document.getElementById("aesthetic").addEventListener("input", (e) => {
     const value = e.target.value;
     document.body.style.filter = `hue-rotate(${value}deg)`;
