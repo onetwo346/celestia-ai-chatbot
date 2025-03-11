@@ -31,44 +31,38 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     background: radial-gradient(circle, #ff8c00, #4b0082, #000);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     animation: orbitGlow 6s infinite;
-    box-shadow: 0 0 50px #ff8c00;
+    box-shadow: 0 0 30px #ff8c00;
 }
 
 @keyframes orbitGlow {
     0% { transform: translate(-50%, -50%) scale(1); }
-    50% { transform: translate(-50%, -50%) scale(1.1); }
+    50% { transform: translate(-50%, -50%) scale(1.05); }
     100% { transform: translate(-50%, -50%) scale(1); }
 }
 
 .title-container {
     position: absolute;
-    top: 20%;
+    top: 15%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
 }
 
 .title {
-    font-size: 3em;
-    text-shadow: 0 0 30px #00f, 0 0 60px #ff0;
-    animation: flicker 4s infinite;
+    font-size: 2.5em;
+    text-shadow: 0 0 20px #00f;
 }
 
 .subtitle {
-    font-size: 1.2em;
+    font-size: 1em;
     color: #ccc;
-    text-shadow: 0 0 20px #9400d3;
-}
-
-@keyframes flicker {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
+    text-shadow: 0 0 10px #9400d3;
 }
 
 .entry-portal {
@@ -76,17 +70,17 @@ body {
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     background: conic-gradient(#fff, #00f, #ff0, #fff);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5em;
+    font-size: 1.2em;
     cursor: pointer;
     animation: spin 3s infinite linear;
-    box-shadow: 0 0 40px #00f;
+    box-shadow: 0 0 20px #00f;
 }
 
 @keyframes spin {
@@ -96,12 +90,12 @@ body {
 
 footer {
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 1em;
+    font-size: 0.9em;
     color: #fff;
-    text-shadow: 0 0 15px #ff4500;
+    text-shadow: 0 0 10px #ff4500;
 }
 
 /* Options Page */
@@ -110,13 +104,6 @@ footer {
     width: 100%;
     height: 100%;
     position: absolute;
-    animation: shimmer 10s infinite;
-}
-
-@keyframes shimmer {
-    0% { opacity: 0.8; }
-    50% { opacity: 1; }
-    100% { opacity: 0.8; }
 }
 
 .mode-selector {
@@ -126,25 +113,26 @@ footer {
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 30px;
 }
 
 .mode {
-    padding: 20px 60px;
-    font-size: 1.5em;
+    padding: 15px 40px;
+    font-size: 1.2em;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 15px;
+    text-align: center;
     transition: transform 0.3s;
 }
 
 .mode.basic {
     background: radial-gradient(#00ff00, #006600);
-    box-shadow: 0 0 30px #00ff00;
+    box-shadow: 0 0 20px #00ff00;
 }
 
 .mode.super-smart {
     background: radial-gradient(#ff00ff, #660066);
-    box-shadow: 0 0 30px #ff00ff;
+    box-shadow: 0 0 20px #ff00ff;
 }
 
 .mode:hover {
@@ -161,29 +149,29 @@ footer {
 
 @keyframes drift {
     0% { background-position: 0 0; }
-    100% { background-position: 1000px 1000px; }
+    100% { background-position: 500px 500px; }
 }
 
 .sidebar {
     position: absolute;
     left: 0;
     top: 0;
-    width: 80px;
+    width: 60px;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-    border-right: 2px solid #fff;
+    border-right: 1px solid #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
-    gap: 40px;
+    gap: 30px;
 }
 
 .glyph {
-    font-size: 2em;
+    font-size: 1.5em;
     cursor: pointer;
     color: #fff;
-    text-shadow: 0 0 20px #00f;
+    text-shadow: 0 0 10px #00f;
     transition: transform 0.3s;
 }
 
@@ -193,99 +181,102 @@ footer {
 
 .settings-orbit {
     position: absolute;
-    left: 100px;
-    top: 60px;
+    left: 70px;
+    top: 50px;
     background: rgba(0, 0, 0, 0.9);
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
     display: none;
-    box-shadow: 0 0 30px #9400d3;
+    box-shadow: 0 0 20px #9400d3;
+    font-size: 0.9em;
 }
 
-.chat-galaxy {
+.chat-container {
     position: absolute;
-    left: 90px;
-    right: 0;
-    top: 0;
-    bottom: 100px;
+    left: 70px;
+    right: 20px;
+    top: 20px;
+    bottom: 120px;
     overflow-y: auto;
-    padding: 20px;
+    padding: 15px;
 }
 
-.chat-galaxy div {
-    margin: 15px;
-    padding: 20px;
+.chat-container div {
+    margin: 10px 0;
+    padding: 15px;
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    max-width: 60%;
-    animation: orbitMessage 8s infinite;
-    box-shadow: 0 0 20px #ff8c00;
+    border-radius: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+    box-shadow: 0 0 10px #ff8c00;
 }
 
-@keyframes orbitMessage {
-    0% { transform: translateX(0) rotate(0deg); }
-    50% { transform: translateX(20px) rotate(180deg); }
-    100% { transform: translateX(0) rotate(360deg); }
+.chat-container div:nth-child(odd) {
+    margin-left: auto;
+    background: rgba(0, 0, 255, 0.2);
 }
 
 .input-sphere {
     position: absolute;
     bottom: 0;
-    left: 90px;
+    left: 70px;
     right: 0;
     height: 100px;
     background: radial-gradient(#ff4500, #1a0033);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
+    padding: 10px;
 }
 
 .input-sphere textarea {
-    width: 70%;
-    height: 60%;
+    width: 80%;
+    height: 70%;
     background: transparent;
-    border: 2px solid #fff;
-    border-radius: 20px;
+    border: 1px solid #fff;
+    border-radius: 10px;
     padding: 10px;
     color: #fff;
     resize: none;
+    font-size: 1em;
 }
 
 .send-pulse {
-    font-size: 2em;
+    font-size: 1.5em;
     cursor: pointer;
     color: #00f;
-    text-shadow: 0 0 20px #00f;
+    text-shadow: 0 0 10px #00f;
     animation: pulseSend 1s infinite;
 }
 
 @keyframes pulseSend {
     0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+    50% { transform: scale(1.1); }
     100% { transform: scale(1); }
 }
 
 .return-shard {
     position: absolute;
     top: 10px;
-    left: 90px;
-    font-size: 2em;
+    left: 70px;
+    font-size: 1.5em;
     cursor: pointer;
     color: #ff0;
-    text-shadow: 0 0 20px #ff0;
+    text-shadow: 0 0 10px #ff0;
 }
 
-/* iPhone Compatibility */
+/* Responsive Design */
 @media (max-width: 768px) {
-    .sidebar {
-        width: 60px;
-    }
-    .chat-galaxy, .input-sphere {
-        left: 70px;
+    .cosmic-orb {
+        width: 150px;
+        height: 150px;
     }
     .title {
-        font-size: 2em;
+        font-size: 1.8em;
+    }
+    .subtitle {
+        font-size: 0.8em;
     }
     .entry-portal {
         width: 100px;
@@ -293,7 +284,38 @@ footer {
         font-size: 1em;
     }
     .mode {
-        padding: 15px 40px;
+        padding: 10px 30px;
+        font-size: 1em;
+    }
+    .sidebar {
+        width: 50px;
+    }
+    .chat-container, .input-sphere {
+        left: 60px;
+    }
+    .settings-orbit {
+        left: 60px;
+        font-size: 0.8em;
+    }
+    .input-sphere textarea {
+        width: 75%;
+        font-size: 0.9em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .title {
+        font-size: 3em;
+    }
+    .subtitle {
         font-size: 1.2em;
+    }
+    .entry-portal {
+        width: 150px;
+        height: 150px;
+    }
+    .mode {
+        padding: 20px 50px;
+        font-size: 1.5em;
     }
 }
