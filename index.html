@@ -2,42 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Celestia AI</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="intro-page" class="page active">
-        <div class="nebula-bg"></div>
-        <div class="title">Celestia AI: The Smartest Mind on Earth</div>
-        <div class="pulse-glyph" onclick="enterCosmos()">Tap to Enter the Cosmos</div>
+        <div class="cosmic-orb"></div>
+        <div class="title-container">
+            <h1 class="title">Celestia AI</h1>
+            <p class="subtitle">The Smartest Mind on Earth, Woven to the Cosmos</p>
+        </div>
+        <div class="entry-portal" onclick="enterCosmos()">Tap to Enter</div>
         <footer>Designed by Kofi Fosu | cosmoscoderr@gmail.com</footer>
     </div>
 
     <div id="options-page" class="page">
-        <div class="chamber-bg"></div>
-        <div class="mode-option" onclick="selectMode('basic')">Basic Mode</div>
-        <div class="mode-option super-smart" onclick="selectMode('super-smart')">Super Smart Mode</div>
+        <div class="crystal-chamber"></div>
+        <div class="mode-selector">
+            <div class="mode basic" onclick="selectMode('basic')">Basic Nexus</div>
+            <div class="mode super-smart" onclick="selectMode('super-smart')">Super Cosmic</div>
+        </div>
     </div>
 
     <div id="chat-page" class="page">
-        <div class="chat-bg"></div>
+        <div class="starfield"></div>
         <div class="sidebar">
-            <div class="sidebar-item" onclick="newChat()">Start New</div>
-            <div class="sidebar-item settings" onclick="toggleSettings()">Settings</div>
-            <div class="settings-panel" id="settings-panel">
-                <p>Voice: <input type="checkbox" id="voice-toggle"></p>
-                <p>Aesthetic: <input type="range" id="aesthetic-slider" min="0" max="100"></p>
+            <div class="glyph new-chat" onclick="newChat()">✧</div>
+            <div class="glyph settings" onclick="toggleSettings()">⚙</div>
+            <div class="settings-orbit" id="settings-orbit">
+                <label><input type="checkbox" id="voice"> Voice</label>
+                <input type="range" id="aesthetic" min="0" max="100" value="50">
             </div>
         </div>
-        <div class="chat-container" id="chat-container"></div>
-        <div class="core-node">
-            <input type="text" id="user-input" placeholder="Ask the Cosmos...">
-            <button onclick="sendMessage()">Send</button>
+        <div class="chat-galaxy" id="chat-galaxy"></div>
+        <div class="input-sphere">
+            <textarea id="user-input" placeholder="Speak to the Universe..."></textarea>
+            <div class="send-pulse" onclick="sendMessage()">➤</div>
         </div>
-        <div class="go-back" onclick="goBack()">Return</div>
+        <div class="return-shard" onclick="goBack()">⟴</div>
     </div>
 
+    <audio id="ambient" src="assets/crystal.mp3" loop></audio>
     <script src="script.js"></script>
 </body>
 </html>
