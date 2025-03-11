@@ -1,1 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celestia AI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="intro-page" class="page active">
+        <div class="nebula-bg"></div>
+        <div class="title">Celestia AI: The Smartest Mind on Earth</div>
+        <div class="pulse-glyph" onclick="enterCosmos()">Tap to Enter the Cosmos</div>
+        <footer>Designed by Kofi Fosu | cosmoscoderr@gmail.com</footer>
+    </div>
 
+    <div id="options-page" class="page">
+        <div class="chamber-bg"></div>
+        <div class="mode-option" onclick="selectMode('basic')">Basic Mode</div>
+        <div class="mode-option super-smart" onclick="selectMode('super-smart')">Super Smart Mode</div>
+    </div>
+
+    <div id="chat-page" class="page">
+        <div class="chat-bg"></div>
+        <div class="sidebar">
+            <div class="sidebar-item" onclick="newChat()">Start New</div>
+            <div class="sidebar-item settings" onclick="toggleSettings()">Settings</div>
+            <div class="settings-panel" id="settings-panel">
+                <p>Voice: <input type="checkbox" id="voice-toggle"></p>
+                <p>Aesthetic: <input type="range" id="aesthetic-slider" min="0" max="100"></p>
+            </div>
+        </div>
+        <div class="chat-container" id="chat-container"></div>
+        <div class="core-node">
+            <input type="text" id="user-input" placeholder="Ask the Cosmos...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+        <div class="go-back" onclick="goBack()">Return</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
